@@ -1,0 +1,18 @@
+<section id="section-{{ section.id }}">
+  <div class="account-content">
+    {{ section.settings.content }} 
+  </div>  
+</section>
+
+{% schema %}
+{
+  "name": "Account Page Content",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Content for logged users"
+    }
+  ]
+}
+{% endschema %}

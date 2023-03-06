@@ -1,0 +1,41 @@
+<section id="section-{{ section.id }}">
+  {% if section.blocks.size > 0 %}
+  <div class="rewards-links rewards-footer-links">
+    {% for block in section.blocks %}
+    	<a  href="{{ block.settings.button_link }}" class="Button Button--primary rewards-link rewards-ButtonLink">{{ block.settings.title }}</a>
+    {% endfor %}
+  </div>
+  {% endif %}  
+</section>
+
+{% schema %}
+{
+  "name": "Rewards Navigation Footer",
+  "blocks": [
+	{
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link title",
+          "default": "Learn more"
+        },
+        {
+          "id": "button_link",
+          "type": "url",
+          "label": "Link url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Image",
+      "name": "Text with image",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

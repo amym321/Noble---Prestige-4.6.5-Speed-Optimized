@@ -1,0 +1,125 @@
+<div class="page-sharing">
+  <div class="section gradient-banner">
+    <div class="content">
+      <img src="{{'sharing-page-banner.svg' | asset_url}}" class="welcome-icon"/>
+      <div class="text banner-text">{{ section.settings.banner_text }}</div>
+      <a href="{{ section.settings.button_link }}" class="Button Button--primary rewards-BannerButton">{{ section.settings.button_title }}</a>
+    </div>
+  </div>
+  <div class="section how-works">
+    <div class="content">
+      <div class="info">
+        <div class="title">HOW IT WORKS</div>
+        <div class="text">
+          <div class="step-title">STEP 1:</div>
+          <div class="step-text">Fill out NobleSharing form to get started.</div>
+          <a href="{{ section.settings.secondary_button_link }}" class="Button Button--primary rewards-BannerButton">{{ section.settings.secondary_button_title }}</a>
+        </div>
+        <div class="text">
+          <div class="step-title">STEP 2:</div>
+          <div class="step-text">Mail your Noble goods back to us with the address we provide at the end of our NobleSharing form.</div>
+        </div>
+        <div class="text">
+          <div class="step-title">STEP 3:</div>
+          <div class="step-text">Your item(s) will be appraised in exchange for store credit for 9% or 18% of the item’s original retail value at your time of purchse, based on quality (see FAQ below)</div>
+        </div>
+        <div class="text">
+          <div class="step-title">STEP 4:</div>
+          <div class="step-text">Once we reach our cap of items, we will hold our Noblesharing Sale via Instagram for our community to participate in</div>
+        </div>
+      </div>
+      <img src="{{'sharing-img1.png' | asset_url}}" class="section-img" />
+    </div>
+  </div>
+  <div class="section accepting-info">
+    <div class="content">
+      <img src="{{'sharing-img2.png' | asset_url}}" class="section-img" />
+      <div class="info">
+        <div class="title">WHAT WE’RE ACCEPTING</div>
+        <div class="text">
+          <b>We only accept our in house Noble Brand.</b>
+        </div>
+        <div class="text">
+          We DO accept garments with small holes (no larger than a quarter size) 
+          or slight fading. <b>Please NO broken snaps, zippers or stains.</b>
+          If your garments are sent in and do not meet our standards, we are happy to recycle these pieces for you, but cannot resell or offer store credit for these items due to inability to repair them in the best possible way. 
+          A good motto to follow is if you wouldn’t buy it in the condition it’s in secondhand- neither would others.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section faq">
+    <div class="content">
+      <div class="title">FAQ</div>
+      <div class="text">
+        <b>How do you determine what my item is worth?</b>
+        <br>Your item will be appraised and will fall into one of these categories:
+        Great Condition: 18% of Retail Price
+        OK Condition (Needs repairs): 9% of Retail Price
+        Damaged or does not meet standards: Donated / Recycled
+      </div>
+      <div class="text">
+        <b>My garment has a small hole and slight fading, can it still be accepted?</b>
+        <br>Yes, we accept garments with small holes (no larger than a quarter size)
+        and slight fading. These pieces will be mended and repaired before being
+        resold. We do NOT accept garments with broken snaps, zippers and stains.
+      </div>
+      <div class="text">
+        <b>What if I’m not happy with the credit I received for my item?</b>
+        <br>When submitting your garments into this program, you acknowledge that we have the right to price and credit the garment according to our re-selling standards. 
+      </div>
+    </div>
+  </div>
+  <div class="section end">
+    <div class="content">
+      <div class="text">
+        <b>Where can I use the credit I receive for this sale?</b>
+        The credit for reselling these items will be applied to your Noble Rewards account in the form of store credit. If you don’t have an account, please <b><a href="/account/register">sign up here</a></b> first in order to be eligible for this program.
+      </div>
+      <div class="text">
+        <b>Can I return a piece I bought during this NobleSharing second hand sale?</b> 
+        <br>All Noblesharing Sales are final and with placing an order you confirm you are okay with the quality and history of the garment.
+      </div>
+      <div class="text">Please reach out to <b><a href="mailto:info@noblecarriage.com">info@noblecarriage.com</a></b> for any other NobleSharing Questions.</div>
+      <div class="images bottom-images">
+        <img src="{{'sharing-text-icon.png' | asset_url}}" class="text-icon">
+        <img src="{{'sharing-heart-icon-colored.png' | asset_url}}" class="heart-icon">
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Sharing page",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "banner_text",
+      "label": "Banner text"
+    },
+    {
+      "type": "text",
+      "id": "button_title",
+      "label": "Button title",
+      "default": "TRADE IN, GET CREDIT"
+    },
+    {
+      "id": "button_link",
+      "type": "url",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_title",
+      "label": "Secondary Button title",
+      "default": "NOBLESHARING FORM"
+    },
+    {
+      "id": "secondary_button_link",
+      "type": "url",
+      "label": "Secondary Button link"
+    }
+  ]
+}
+{% endschema %}

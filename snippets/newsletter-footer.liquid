@@ -1,0 +1,47 @@
+{%- assign placeholder = 'footer.newsletter.input' | t -%}
+{%- if block.settings.placeholder != '' -%}
+	{%- assign placeholder = block.settings.placeholder -%}
+{%- endif -%}
+
+{%- assign button_text = 'footer.newsletter.submit' | t -%}
+{%- if block.settings.button_text != '' -%}
+	{%- assign button_text = block.settings.button_text -%}
+{%- endif -%}
+
+{%-assign bordered = false -%}
+{%-if block.settings.style == 'bordered' -%}
+	{%-assign bordered = true -%}
+{%-endif-%}
+
+<div class="Newsletter__Container--{{ block.settings.style }}">
+  {%- if block.settings.title != blank -%}
+  	<h2 class="Footer__Title Heading u-h6">{{ block.settings.title | escape }}</h2>
+  {%- endif -%}
+
+  {%- if block.settings.content != blank -%}
+    <div class="Footer__Content Rte">
+      {{ block.settings.content }}
+    </div>
+  {%- endif -%}
+
+  {%- form 'customer', id: 'footer-newsletter', class: 'Footer__Newsletter Form' -%}
+    {%- if form.posted_successfully? -%}
+      <p class="Form__Alert Alert Alert--success">{{ 'footer.newsletter.success' | t }}</p>
+    {%- else -%}
+    {%- if form.errors -%}
+      <p class="Form__Alert Alert Alert--error">{{ form.errors.messages['email'] }}</p>
+    {%- endif -%}
+
+    	<input type="hidden" name="contact[tags]" value="newsletter">
+    	<input type="email" name="contact[email]" class="Form__Input {% unless bordered %}u-l-h1{% endunless %}" aria-label="{{ 'footer.newsletter.input' | t }}" placeholder="{{ placeholder }}" required>
+        <button type="submit" class="Form__Submit {% if bordered %}Button Button--primary{% else %}u-h2{% endif %}">
+          {% unless bordered %}
+            <div class="submit-icon">
+              {% include 'icon-point-to' %}
+            </div>
+          {% endunless %}
+          {{ button_text }}
+        </button>
+    {%- endif -%}
+  {%- endform -%}
+</div>

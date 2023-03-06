@@ -1,0 +1,58 @@
+{% section 'product-template' %}
+{% section 'instafeed' %}
+{% section 'product-recommendations' %}
+{% section 'recently-viewed-products' %}
+<section>
+  <div class="FlexboxIeFix ContentPosition--">
+    <div class="ImageHero ImageHero--xsmall" style="color: #BF5247">
+      <div class="ImageHero__ContentOverlay TextHero">
+        <div class="TextHero__TextBlock">
+          <div class="TextBlock__TextContainer">
+            <div class="TextBlock__TextTitle">FREE USA SHIPPING ON ORDERS $100+ &amp; easy returns</div>
+            <div class="TextBlock__TextSubheading"><p>Our self service returns/exchange<br>portal is easy peasy.</p></div>               
+          </div>
+
+          <div class="TextBlock__TextContainer">
+            <div class="TextBlock__TextTitle">Contact us</div>
+            <div class="TextBlock__TextSubheading"><p>Email us at info@noblecarriage.com&nbsp;</p>
+              <p>Weʼll get back to you within 24 hours</p></div>               
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  window.ShopifyXR=window.ShopifyXR||function(){(ShopifyXR.q=ShopifyXR.q||[]).push(arguments)};
+  ShopifyXR('addModels', {{ product.media | where: 'media_type', 'model' | json }});
+</script>
+
+<div data-rebuy-id="11127" data-rebuy-shopify-product-ids="{{ product.id }}"></div>
+<script type="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>

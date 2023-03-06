@@ -1,0 +1,32 @@
+{% if type == 'block' %}
+{% assign section_bg = block.settings.section_bg %}
+{% assign title = block.settings.feed_title %}
+{% assign widget_code = block.settings.widget_code %}
+{% else %}
+{% assign section_bg = section.settings.section_bg %}
+{% assign title = section.settings.feed_title %}
+{% assign widget_code = section.settings.widget_code %}
+{% endif %}
+
+
+{% if title == '' %}
+{% assign title = settings.default_instafeed_title %}
+{% endif %}
+{% if widget_code == '' %}
+{% assign widget_code = settings.default_instafeed_widget_code %}
+{% endif %}
+
+{% if widget_code != '' %}
+<div class="instafeed-container" style="background: {{ section_bg }};">
+  {% if title != blank %}
+  <div class="col-12 center">
+    <h4 class="section-title">
+      #wornwell
+    </h4>
+  </div>
+  {% endif %}
+  <div class="col-12 center instafeed-content">
+    {{ widget_code }}
+  </div>
+</div>
+{% endif %}

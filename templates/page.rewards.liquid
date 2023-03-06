@@ -1,0 +1,12 @@
+<div class="rewards-page-template">
+  {% section 'page-rewards-banner' %}
+  {% section 'page-rewards-navigation' %}
+  {% section 'page-rewards-content' %}
+  {% section 'page-rewards-info' %}
+  {% section 'page-rewards-footer-navigation' %}
+  {% if customer %}
+  <div class="container">
+    {{page.content}}
+  </div>
+  {% endif %}
+</div>

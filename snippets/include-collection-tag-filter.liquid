@@ -1,0 +1,22 @@
+{%- assign tag_parts = tag | split: '_' -%}
+
+{%- if tag_parts.size != 2 or tag_parts.first != group -%}
+{%- continue -%}
+{%- endif -%}
+
+{%- if show_color_swatch -%}
+<li class="HorizontalList__Item">
+  {%- assign color_swatch_name = tag_parts.last | handle | append: '.png' -%}
+  {%- assign color_swatch_image = images[color_swatch_name] -%}
+
+  <button type="button" class="ColorSwatch {% if current_tags contains tag %}is-active{% endif %}" data-tag="{{ tag | handle }}" data-action="toggle-tag" data-tooltip="{{ tag_parts.last | escape }}" style="background-color: {{ tag_parts.last | replace: ' ', '' | downcase }}; {% if color_swatch_image != blank %}background-image: url({{ color_swatch_image | img_url: '64x64' }}){% endif %}">
+    <span class="u-visually-hidden">{{ tag_parts.last }}</span>
+  </button>
+</li>
+{%- else -%}
+<li class="Linklist__Item {% if current_tags contains tag %}is-selected{% endif %}">
+  <button type="button" class="Text--subdued Link Link--primary {% if current_tags contains tag %}is-active{% endif %}" data-tag="{{ tag | handle }}" data-action="toggle-tag">
+    {{- tag_parts.last -}}
+  </button>
+</li>
+{%- endif -%}
